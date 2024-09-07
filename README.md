@@ -1,4 +1,14 @@
 # Marker
+## API Integration
+
+This forked version of `Marker` includes an API wrapper built using `FastAPI` to enable the extraction of images and metadata from PDFs.
+
+### Features:
+- Upload PDFs via the API and extract embedded images.
+- Retrieve extracted images and PDF metadata.
+- Asynchronous processing to handle large files.
+
+
 
 Marker converts PDF to markdown quickly and accurately.
 
