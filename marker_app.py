@@ -86,14 +86,16 @@ max_pages = st.sidebar.number_input("Max pages to parse", min_value=1, value=10,
 ocr_all_pages = st.sidebar.checkbox("Force OCR on all pages", help="Force OCR on all pages, even if they are images", value=False)
 
 if in_file is None:
+    st.error("Please upload a valid PDF file.")
     st.stop()
-
-# Save uploaded PDF file to a writable directory
-save_path = os.path.join("uploaded_files", in_file.name)
-with open(save_path, "wb") as f:
-    f.write(in_file.getbuffer())
+else:
+    # Now that in_file is confirmed not None, save the file
+    save_path = os.path.join("uploaded_files", in_file.name)
+    with open(save_path, "wb") as f:
+        f.write(in_file.getbuffer())
 
 st.write(f"File saved at: {save_path}")
+
 
 with col1:
     page_count_val = page_count(in_file)
