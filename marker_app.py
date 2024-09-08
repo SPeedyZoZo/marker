@@ -89,12 +89,11 @@ if in_file is None:
     st.error("Please upload a valid PDF file.")
     st.stop()
 else:
-    # Now that in_file is confirmed not None, save the file
     save_path = os.path.join("uploaded_files", in_file.name)
     with open(save_path, "wb") as f:
         f.write(in_file.getbuffer())
+    st.write(f"File saved at: {save_path}")
 
-st.write(f"File saved at: {save_path}")
 
 
 with col1:
